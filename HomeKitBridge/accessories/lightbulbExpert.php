@@ -77,7 +77,10 @@ class HAPAccessoryConfigurationLightbulbExpert extends HAPAccessoryConfiguration
             return 'Variable BrightnessID missing';
         }
 
-        return self::getSwitchCompatibility($data['StateID']);
+        $rSwitchResult = self::getSwitchCompatibility($data['StateID']);
+        if ($rSwitchResult !== 'OK') {
+            return $rSwitchResult;
+        }
         return self::getDimCompatibility($data['BrightnessID']);
     }
 

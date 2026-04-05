@@ -213,7 +213,7 @@ class HomeKitBridge extends DNSSDModule
         $data = json_decode($JSONString);
 
         //Decode buffer
-        $buffer = utf8_decode($data->Buffer);
+        $buffer = mb_convert_encoding($data->Buffer, 'ISO-8859-1', 'UTF-8');
 
         //Show some debug data
         switch ($data->Type) {
@@ -240,7 +240,7 @@ class HomeKitBridge extends DNSSDModule
             $this->SendDebug('HomeKit ' . $data->ClientIP . ':' . $data->ClientPort, 'Transmit: ' . $response, 0);
 
             //Send response
-            $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => utf8_encode($response), 'ClientIP' => $data->ClientIP, 'ClientPort' => $data->ClientPort, 'Type' => 0 /* Data */]));
+            $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => mb_convert_encoding($response, 'UTF-8', 'ISO-8859-1'), 'ClientIP' => $data->ClientIP, 'ClientPort' => $data->ClientPort, 'Type' => 0 /* Data */]));
         }
 
         //Save session for ClientIP/ClientPort
@@ -461,7 +461,7 @@ class HomeKitBridge extends DNSSDModule
                     $this->SendDebug('HomeKit ' . $clientIP . ':' . $clientPort, 'Transmit: ' . $response, 0);
 
                     //Send response
-                    $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => utf8_encode($response), 'ClientIP' => $clientIP, 'ClientPort' => intval($clientPort), 'Type' => 0 /* Data */]));
+                    $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => mb_convert_encoding($response, 'UTF-8', 'ISO-8859-1'), 'ClientIP' => $clientIP, 'ClientPort' => intval($clientPort), 'Type' => 0 /* Data */]));
                 }
 
                 //Save session for ClientIP/ClientPort

@@ -391,11 +391,11 @@ class HAPCharacteristic
                 $value = strval($value);
                 return $validateStringBoundaries($value);
             case HAPCharacteristicFormat::TLV8:
-                throw Exception('Cannot validate value for TLV8 format');
+                throw new Exception('Cannot validate value for TLV8 format');
             case HAPCharacteristicFormat::Data:
-                throw Exception('Cannot validate value for Data format');
+                throw new Exception('Cannot validate value for Data format');
             default:
-                throw Exception('Cannot validate value for Unknown format');
+                throw new Exception('Cannot validate value for Unknown format');
         }
     }
 
