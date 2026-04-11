@@ -195,7 +195,7 @@ class HAPAccessoryConfigurationThermostatHeatOnlyBattery extends HAPAccessoryCon
         $aBase['de'] = array_merge($aBase['de'], [
             'Thermostat (Heat Only + Battery)'  => 'Thermostat (Nur Heizen + Batterie)',
             'LowBatteryID'                      => 'BatterieWarnung-ID',
-            'LowBatteryID: Bool required'       => 'BatterieWarnung-ID: Bool benoetigt'
+            'LowBatteryID: Bool required'       => 'BatterieWarnung-ID: Bool benötigt'
         ]);
         return $aBase;
     }

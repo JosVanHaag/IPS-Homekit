@@ -84,10 +84,10 @@ class HAPAccessoryConfigurationOccupancySensor
     {
         return [
             'de' => [
-                'Occupancy Sensor'  => 'Praesenzmelder',
+                'Occupancy Sensor'  => 'Präsenzmelder',
                 'VariableID'        => 'VariablenID',
                 'Variable missing'  => 'Variable fehlt',
-                'Bool required'     => 'Bool benoetigt',
+                'Bool required'     => 'Bool benötigt',
                 'OK'                => 'OK'
             ]
         ];

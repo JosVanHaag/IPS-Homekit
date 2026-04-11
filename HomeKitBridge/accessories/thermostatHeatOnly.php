@@ -183,13 +183,13 @@ class HAPAccessoryConfigurationThermostatHeatOnly
         return [
             'de' => [
                 'Thermostat (Heat Only)'                    => 'Thermostat (Nur Heizen)',
-                'CurrentTemperatureID'                      => 'IsttemperaturID',
-                'TargetTemperatureID'                       => 'SolltemperaturID',
-                'Variable CurrentTemperatureID missing'     => 'Variable IsttemperaturID fehlt',
-                'Variable TargetTemperatureID missing'      => 'Variable SolltemperaturID fehlt',
-                'CurrentTemperatureID: Float required'      => 'IsttemperaturID: Float benoetigt',
-                'TargetTemperatureID: Float required'       => 'SolltemperaturID: Float benoetigt',
-                'TargetTemperatureID: Action required'      => 'SolltemperaturID: Aktion benoetigt',
+                'CurrentTemperatureID'                      => 'CurrentTemperatureID',
+                'TargetTemperatureID'                       => 'TargetTemperatureID',
+                'Variable CurrentTemperatureID missing'     => 'Variable CurrentTemperatureID fehlt',
+                'Variable TargetTemperatureID missing'      => 'Variable TargetTemperatureID fehlt',
+                'CurrentTemperatureID: Float required'      => 'CurrentTemperatureID: Float benötigt',
+                'TargetTemperatureID: Float required'       => 'TargetTemperatureID: Float benötigt',
+                'TargetTemperatureID: Action required'      => 'TargetTemperatureID: Aktion benötigt',
                 'OK'                                        => 'OK'
             ]
         ];

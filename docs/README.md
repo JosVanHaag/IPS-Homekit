@@ -56,7 +56,9 @@ Jeder Eintrag erfordert einen Namen unter welchem das Gerät bei Apple HomeKit b
 * [Lampe (Dimmbar)][lampe-dimmbar]
 * [Lampe (Farbig)][lampe-farbig]
 * [Lampe (Experte)][lampe-experte]
+* [Lampe (Farbtemperatur)][lampe-farbtemperatur]
 * [Bewegungsmelder][bewegungsmelder]
+* [Präsenzmelder][praesenzmelder]
 * [Fenster (Position)][fenster-position]
 * [Fenster (Hoch/Runter)][fenster-hoch-runter]
 * [Feuchtigkeitssensor][feuchtigkeitssensor]
@@ -75,6 +77,8 @@ Jeder Eintrag erfordert einen Namen unter welchem das Gerät bei Apple HomeKit b
 * [Schloss][schloss]
 * [Temperatursensor][temperatursensor]
 * [Thermostat][thermostat]
+* [Thermostat (Nur Heizen)][thermostat-nur-heizen]
+* [Thermostat (Nur Heizen + Batterie)][thermostat-nur-heizen-+-batterie]
 * [Zwischenstecker][zwischenstecker]
 * [Expertenoptionen][expertenoptionen]
 * [Sicherheitssystem][sicherheitssystem]
@@ -175,7 +179,9 @@ In der Home-App sind nun einige der eingerichteten Geräte sichtbar. Der Rest wi
 [lampe-dimmbar]: types/lampe-dimmbar.md
 [lampe-farbig]: types/lampe-farbig.md
 [lampe-experte]: types/lampe-experte.md
+[lampe-farbtemperatur]: types/lampe-farbtemperatur.md
 [bewegungsmelder]: types/bewegungsmelder.md
+[praesenzmelder]: types/praesenzmelder.md
 [fenster-position]: types/fenster-position.md
 [fenster-hoch-runter]: types/fenster-hoch-runter.md
 [feuchtigkeitssensor]: types/feuchtigkeitssensor.md
@@ -194,6 +200,8 @@ In der Home-App sind nun einige der eingerichteten Geräte sichtbar. Der Rest wi
 [schloss]: types/schloss.md
 [temperatursensor]: types/temperatursensor.md
 [thermostat]: types/thermostat.md
+[thermostat-nur-heizen]: types/thermostat-nur-heizen.md
+[thermostat-nur-heizen-+-batterie]: types/thermostat-nur-heizen-+-batterie.md
 [zwischenstecker]: types/zwischenstecker.md
 [expertenoptionen]: types/expertenoptionen.md
 [sicherheitssystem]: types/sicherheitssystem.md
