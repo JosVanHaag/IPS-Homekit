@@ -11,6 +11,7 @@ Eine vollständige Anleitung zur Installation und Einrichtung sowie eine Übersi
 * [Lampe (Farbig)][lampe-farbig]
 * [Lampe (Experte)][lampe-experte]
 * [Lampe (Farbtemperatur)][lampe-farbtemperatur]
+* [Türklingel][tuerklingel]
 * [Bewegungsmelder][bewegungsmelder]
 * [Präsenzmelder][praesenzmelder]
 * [Fenster (Position)][fenster-position]
@@ -43,6 +44,7 @@ Eine vollständige Anleitung zur Installation und Einrichtung sowie eine Übersi
 [lampe-farbig]: types/lampe-farbig.md
 [lampe-experte]: types/lampe-experte.md
 [lampe-farbtemperatur]: types/lampe-farbtemperatur.md
+[tuerklingel]: types/tuerklingel.md
 [bewegungsmelder]: types/bewegungsmelder.md
 [praesenzmelder]: types/praesenzmelder.md
 [fenster-position]: types/fenster-position.md

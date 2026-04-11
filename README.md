@@ -47,6 +47,7 @@ Nach der Kopplung zeigt die Spalte **Status** für jedes Gerät **OK** an, sofer
 | [Lampe (Farbig)][lampe-farbig] | Ein/Aus + Helligkeit + Farbe (HSB) |
 | [Lampe (Experte)][lampe-experte] | Separate State- und Brightness-Variablen |
 | [Lampe (Farbtemperatur)][lampe-farbtemperatur] | Experte + Farbtemperatur in Mired |
+| [Türklingel][tuerklingel] | Bool-Variable, löst HomeKit-Push-Notification aus |
 | [Bewegungsmelder][bewegungsmelder] | Bool-Variable, Bewegung erkannt |
 | [Präsenzmelder][praesenzmelder] | Bool-Variable, Präsenz erkannt (uint8-Characteristic) |
 | [Fenster (Position)][fenster-position] | Position 0–100 % |
@@ -87,6 +88,7 @@ Eine Übersicht über den internen Aufbau des HAP-Stacks (Dispatch-Mechanismus, 
 [lampe-farbig]: docs/types/lampe-farbig.md
 [lampe-experte]: docs/types/lampe-experte.md
 [lampe-farbtemperatur]: docs/types/lampe-farbtemperatur.md
+[tuerklingel]: docs/types/tuerklingel.md
 [bewegungsmelder]: docs/types/bewegungsmelder.md
 [praesenzmelder]: docs/types/praesenzmelder.md
 [fenster-position]: docs/types/fenster-position.md
