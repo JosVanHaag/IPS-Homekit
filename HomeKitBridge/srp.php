@@ -22,9 +22,11 @@ class SRP6aBase
                         BBE11757 7A615D6C 770988C0 BAD946E2 08E24FA0 74E5AB31 43DB5BFC
                         E0FD108E 4B82D120 A93AD2CA FFFFFFFF FFFFFFFF';
     protected $N_dec = '';
+    protected $N_bin = '';
 
     protected $g_hex = '05';
     protected $g_dec = '';
+    protected $g_bin = '';
 
     protected $s_bin = '';
     protected $I_bin = '';

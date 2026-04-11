@@ -153,7 +153,7 @@ class HAPAccessoryConfigurationGarageDoorOpener
     public static function getObjectIDs($data)
     {
         return [
-            $data['VariableID'],
+            $data['VariableID'] ?? 0,
         ];
     }
 
