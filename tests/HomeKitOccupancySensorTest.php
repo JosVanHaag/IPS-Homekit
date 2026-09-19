@@ -78,24 +78,6 @@ class HomeKitOccupancySensorTest extends HomeKitBaseTest
         $this->assertEquals(json_decode(file_get_contents(__DIR__ . '/exports/None.json'), true), $bridgeInterface->DebugAccessories());
     }
 
-    // ---------------------------------------------------------------
-    // Liest den Wert der Characteristic OccupancyDetected (Typ 71) aus dem Export
-    // ---------------------------------------------------------------
-    private function getOccupancyDetected(array $aAccessories)
-    {
-        foreach ($aAccessories as $dAccessory) {
-            foreach ($dAccessory['services'] as $dService) {
-                foreach ($dService['characteristics'] as $dCharacteristic) {
-                    if ($dCharacteristic['type'] === '71') {
-                        return $dCharacteristic['value'];
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-
     public function testAccessoryBroken(): void
     {
         $bridgeID = IPS_CreateInstance($this->bridgeModuleID);
@@ -113,5 +95,23 @@ class HomeKitOccupancySensorTest extends HomeKitBaseTest
 
         //Check if the generated content matches our test file
         $this->assertEquals(json_decode(file_get_contents(__DIR__ . '/exports/None.json'), true), $bridgeInterface->DebugAccessories());
+    }
+
+    // ---------------------------------------------------------------
+    // Liest den Wert der Characteristic OccupancyDetected (Typ 71) aus dem Export
+    // ---------------------------------------------------------------
+    private function getOccupancyDetected(array $aAccessories)
+    {
+        foreach ($aAccessories as $dAccessory) {
+            foreach ($dAccessory['services'] as $dService) {
+                foreach ($dService['characteristics'] as $dCharacteristic) {
+                    if ($dCharacteristic['type'] === '71') {
+                        return $dCharacteristic['value'];
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 }

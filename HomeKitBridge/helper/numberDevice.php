@@ -49,21 +49,20 @@ trait HelperGetNumberDevice
             if (empty($presentation)) {
                 return false;
             }
-    
+
             switch ($presentation['PRESENTATION']) {
                 case VARIABLE_PRESENTATION_LEGACY:
                     return $legacyValue($presentation['PROFILE']);
-    
-                    // No break. Add additional comment above this line if intentional
+
                 case VARIABLE_PRESENTATION_SLIDER:
                     if (($targetVariable['VariableType'] == 2 /* Float */)) {
                         $value = round($value, $presentation['DIGITS']);
                     }
                     return $value;
-    
+
                 case VARIABLE_PRESENTATION_ENUMERATION:
                     return $value;
-    
+
                 default:
                     return false;
             }

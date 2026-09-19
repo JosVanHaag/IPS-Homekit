@@ -47,19 +47,19 @@ trait HelperGetFloatDevice
             return $value;
         } else {
             $presentation = IPS_GetVariablePresentation($variableID);
-    
+
             switch ($presentation['PRESENTATION'] ?? 'No presentation') {
                 case VARIABLE_PRESENTATION_LEGACY:
                     $legacyValue($presentation['PROFILE']);
                     break;
-    
+
                 case VARIABLE_PRESENTATION_SLIDER:
                     $value = round($value, $presentation['DIGITS']);
                     break;
-    
+
                 default:
                     break;
-    
+
             }
             return $value;
         }

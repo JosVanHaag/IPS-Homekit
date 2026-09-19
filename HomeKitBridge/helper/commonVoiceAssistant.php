@@ -75,7 +75,8 @@ trait CommonVoiceAssistant
 
     public function UIUpdateNextID(array $ListValues)
     {
-        $this->registry->updateNextID($ListValues,
+        $this->registry->updateNextID(
+            $ListValues,
             function ($Field, $Parameter, $Value)
             {
                 $this->UpdateFormField($Field, $Parameter, $Value);
@@ -85,7 +86,8 @@ trait CommonVoiceAssistant
 
     public function UIRepairIDs(array $ListValues)
     {
-        $this->registry->repairIDs($ListValues,
+        $this->registry->repairIDs(
+            $ListValues,
             function ($Field, $Parameter, $Value)
             {
                 $this->UpdateFormField($Field, $Parameter, $Value);
@@ -96,7 +98,8 @@ trait CommonVoiceAssistant
 
     public function UIStartDeviceSearch(array $ListValues)
     {
-        $this->registry->searchDevices($ListValues,
+        $this->registry->searchDevices(
+            $ListValues,
             function ($Field, $Parameter, $Value)
             {
                 $this->UpdateFormField($Field, $Parameter, $Value);
@@ -106,7 +109,9 @@ trait CommonVoiceAssistant
 
     public function UIAddSearchedDevices(array $CurrentDevices, array $NewDevices)
     {
-        $this->registry->addDevices($CurrentDevices, $NewDevices,
+        $this->registry->addDevices(
+            $CurrentDevices,
+            $NewDevices,
             function ($Field, $Parameter, $Value)
             {
                 $this->UpdateFormField($Field, $Parameter, $Value);

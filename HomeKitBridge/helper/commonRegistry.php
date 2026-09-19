@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 class CommonRegistry
 {
-    const classPrefix = 'DeviceType';
-    const propertyPrefix = 'Device';
-    const deviceSearchPrefix = 'FoundDevice';
+    public const classPrefix = 'DeviceType';
+    public const propertyPrefix = 'Device';
+    public const deviceSearchPrefix = 'FoundDevice';
 
     protected static $supportedDeviceTypes = [];
     protected $instanceID = 0;

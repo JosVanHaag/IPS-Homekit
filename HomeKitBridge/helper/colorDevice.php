@@ -89,11 +89,11 @@ trait HelperColorDevice
             }
         } else {
             $presentation = IPS_GetVariablePresentation($variableID);
-    
+
             if (empty($presentation)) {
                 return false;
             }
-    
+
             switch ($presentation['PRESENTATION']) {
                 case VARIABLE_PRESENTATION_LEGACY:
                     $success = $computeLegacy();
@@ -101,7 +101,7 @@ trait HelperColorDevice
                         return false;
                     }
                     break;
-    
+
                 case VARIABLE_PRESENTATION_COLOR:
                     if ($targetVariable['VariableType'] == VARIABLETYPE_INTEGER) {
                         $rgbValue = GetValueInteger($variableID);
@@ -114,7 +114,6 @@ trait HelperColorDevice
                     }
             }
         }
-
 
         if (($rgbValue < 0) || ($rgbValue > 0xFFFFFF)) {
             return false;
