@@ -27,6 +27,11 @@ class HAPAccessoryOccupancySensor extends HAPAccessoryBase
     // OccupancyDetected ist uint8, kein bool — int-Cast erforderlich
     public function readCharacteristicOccupancyDetected()
     {
+        // Integer-Variable: belegt nur bei Wert groesser 0 (z. B. -1 abwesend, 0 unbestimmt, 1 anwesend)
+        if (IPS_GetVariable($this->data['VariableID'])['VariableType'] == 1 /* Integer */) {
+            return (GetValue($this->data['VariableID']) > 0) ? 1 : 0;
+        }
+
         return (int) self::GetSwitchValue($this->data['VariableID']);
     }
 }
@@ -73,8 +78,8 @@ class HAPAccessoryConfigurationOccupancySensor
 
         $targetVariable = IPS_GetVariable($data['VariableID']);
 
-        if ($targetVariable['VariableType'] != 0 /* Boolean */) {
-            return 'Bool required';
+        if (!in_array($targetVariable['VariableType'], [0 /* Boolean */, 1 /* Integer */])) {
+            return 'Bool or Integer required';
         }
 
         return 'OK';
@@ -87,7 +92,7 @@ class HAPAccessoryConfigurationOccupancySensor
                 'Occupancy Sensor'  => 'Präsenzmelder',
                 'VariableID'        => 'VariablenID',
                 'Variable missing'  => 'Variable fehlt',
-                'Bool required'     => 'Bool benötigt',
+                'Bool or Integer required' => 'Bool oder Integer benötigt',
                 'OK'                => 'OK'
             ]
         ];
