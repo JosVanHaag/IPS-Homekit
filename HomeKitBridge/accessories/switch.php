@@ -80,7 +80,7 @@ class HAPAccessoryConfigurationSwitch
     {
         return [
             'de' => [
-                'Switch'                => 'Zwischenstecker',
+                'Switch'                => 'Schalter',
                 'VariableID'            => 'VariablenID',
                 'Variable missing'      => 'Variable fehlt',
                 'Bool required'         => 'Bool benötigt',

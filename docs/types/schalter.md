@@ -1,6 +1,6 @@
 ### Beschreibung
 
-Geräte vom Typ Zwischenstecker beschreiben Geräte, welche an- und ausgeschaltet werden können.
+Geräte vom Typ Schalter beschreiben Geräte, welche an- und ausgeschaltet werden können.
 
 ### Parameter
 
