@@ -229,22 +229,32 @@ class HomeKitBridge extends DNSSDModule
                 return;
         }
 
-        //Get Session for ClientIP/ClientPort
-        $session = $this->getSession($data->ClientIP, $data->ClientPort);
+        // Sitzung als aktiv markieren: Aendert die Verarbeitung per RequestAction eine
+        // Variable synchron, laeuft MessageSink verschachtelt in diesem Aufruf. Eine
+        // Meldung an diese Sitzung wuerde mit einer veralteten Kopie ihres Zaehlers
+        // verschluesselt, die Antwort unten danach mit demselben Zaehler
+        $this->SetBuffer('ActiveSession', $data->ClientIP . ':' . $data->ClientPort);
 
-        //Add new data and process it inside the session
-        $response = $session->processData($buffer);
+        try {
+            //Get Session for ClientIP/ClientPort
+            $session = $this->getSession($data->ClientIP, $data->ClientPort);
 
-        //Only if we have a valid response
-        if ($response !== '') {
-            $this->SendDebug('HomeKit ' . $data->ClientIP . ':' . $data->ClientPort, 'Transmit: ' . $response, 0);
+            //Add new data and process it inside the session
+            $response = $session->processData($buffer);
 
-            //Send response
-            $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => mb_convert_encoding($response, 'UTF-8', 'ISO-8859-1'), 'ClientIP' => $data->ClientIP, 'ClientPort' => $data->ClientPort, 'Type' => 0 /* Data */]));
+            //Only if we have a valid response
+            if ($response !== '') {
+                $this->SendDebug('HomeKit ' . $data->ClientIP . ':' . $data->ClientPort, 'Transmit: ' . $response, 0);
+
+                //Send response
+                $this->SendDataToParent(json_encode(['DataID' => '{C8792760-65CF-4C53-B5C7-A30FCC84FEFE}', 'Buffer' => mb_convert_encoding($response, 'UTF-8', 'ISO-8859-1'), 'ClientIP' => $data->ClientIP, 'ClientPort' => $data->ClientPort, 'Type' => 0 /* Data */]));
+            }
+
+            //Save session for ClientIP/ClientPort
+            $this->setSession($data->ClientIP, $data->ClientPort, $session);
+        } finally {
+            $this->SetBuffer('ActiveSession', '');
         }
-
-        //Save session for ClientIP/ClientPort
-        $this->setSession($data->ClientIP, $data->ClientPort, $session);
     }
 
     public function Cleanup()
@@ -444,10 +454,18 @@ class HomeKitBridge extends DNSSDModule
     private function processNotifications($VariableID, $Value)
     {
         $this->SendDebug('Notify Event', 'VariableID ' . $VariableID . ' = ' . var_export($Value, true), 0);
+        $sActiveSession = $this->GetBuffer('ActiveSession');
         foreach ($this->GetBufferList() as $name) {
             //check for a colon, which indicates an ip / port combination
             //filter different buffers we use like e.g. SetupCode
             if (strpos($name, ':') !== false) {
+                // Keine Meldung an die Sitzung, deren Anfrage gerade verarbeitet wird:
+                // sie bekommt die Antwort auf ihren Befehl (so haelt es auch HAP-NodeJS)
+                if ($name === $sActiveSession) {
+                    $this->SendDebug('HomeKit ' . $name, 'Notify suppressed, request in progress', 0);
+                    continue;
+                }
+
                 list($clientIP, $clientPort) = explode(':', $name);
 
                 //Get Session for ClientIP/ClientPort
