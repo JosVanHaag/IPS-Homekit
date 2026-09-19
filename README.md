@@ -10,6 +10,18 @@ _Dieses Repository enthält keine von Apple zertifizierte Bridge und wird nicht 
 
 ---
 
+## Herkunft
+
+Dieses Modul ist ein Fork von [paresy/HomeKit](https://github.com/paresy/HomeKit) (Version 1.6.1) von Michael Maroszek und wird eigenständig weiterentwickelt. Änderungen werden nicht an das Original zurückgegeben.
+
+Unterschiede zum Original:
+
+- **IP-Symcon 9 und PHP 8.4+:** angepasst an die aktuelle Modul-API, Mindestversion IP-Symcon 9.0
+- **Zusätzliche Gerätetypen:** [Präsenzmelder][praesenzmelder], [Thermostat (Nur Heizen)][thermostat-nur-heizen], [Thermostat (Nur Heizen + Batterie)][thermostat-nur-heizen-+-batterie], [Lampe (Farbtemperatur)][lampe-farbtemperatur] und [Türklingel][tuerklingel]
+- **Keine Meldung an den auslösenden Controller:** Ändert ein Schaltbefehl den Wert einer Variable sofort, bekommt der Controller, der den Befehl geschickt hat, keine Statusmeldung zu dieser Änderung mehr, sondern nur die Antwort auf seinen Befehl. Im Original führte dieses Zusammentreffen dazu, dass der Controller die Verbindung trennte und die Home-App „Keine Antwort“ zeigte, obwohl der Befehl ausgeführt war.
+
+---
+
 ## Voraussetzungen
 
 - IP-Symcon 9.0 oder neuer
@@ -49,7 +61,7 @@ Nach der Kopplung zeigt die Spalte **Status** für jedes Gerät **OK** an, sofer
 | [Lampe (Farbtemperatur)][lampe-farbtemperatur] | Experte + Farbtemperatur in Mired |
 | [Türklingel][tuerklingel] | Bool-Variable, löst HomeKit-Push-Notification aus |
 | [Bewegungsmelder][bewegungsmelder] | Bool-Variable, Bewegung erkannt |
-| [Präsenzmelder][praesenzmelder] | Bool-Variable, Präsenz erkannt (uint8-Characteristic) |
+| [Präsenzmelder][praesenzmelder] | Bool- oder Integer-Variable, Präsenz erkannt (Integer: Wert > 0 = anwesend) |
 | [Fenster (Position)][fenster-position] | Position 0–100 % |
 | [Fenster (Hoch/Runter)][fenster-hoch-runter] | Binäre Richtungssteuerung |
 | [Feuchtigkeitssensor][feuchtigkeitssensor] | Float-Variable, relative Luftfeuchte |
@@ -70,7 +82,7 @@ Nach der Kopplung zeigt die Spalte **Status** für jedes Gerät **OK** an, sofer
 | [Thermostat][thermostat] | Ist- + Soll-Temperatur, alle Betriebsmodi |
 | [Thermostat (Nur Heizen)][thermostat-nur-heizen] | Ist- + Soll-Temperatur, nur Off/Heat |
 | [Thermostat (Nur Heizen + Batterie)][thermostat-nur-heizen-+-batterie] | Wie oben, zusätzlich LOWBAT-Anzeige |
-| [Zwischenstecker][zwischenstecker] | Ein/Aus mit Verbrauchsanzeige |
+| [Schalter][schalter] | Ein/Aus über Bool-Variable |
 | [Sicherheitssystem][sicherheitssystem] | Scharf/Unscharf mit Alarmmodus |
 | [Zustandsloser programmierbarer Schalter][zustandsloser-programmierbarer-schalter] | Szenen-Auslöser |
 | [Expertenoptionen][expertenoptionen] | Erweiterte Konfiguration für alle Typen |
@@ -111,7 +123,7 @@ Eine Übersicht über den internen Aufbau des HAP-Stacks (Dispatch-Mechanismus, 
 [thermostat]: docs/types/thermostat.md
 [thermostat-nur-heizen]: docs/types/thermostat-nur-heizen.md
 [thermostat-nur-heizen-+-batterie]: docs/types/thermostat-nur-heizen-+-batterie.md
-[zwischenstecker]: docs/types/zwischenstecker.md
+[schalter]: docs/types/schalter.md
 [expertenoptionen]: docs/types/expertenoptionen.md
 [sicherheitssystem]: docs/types/sicherheitssystem.md
 [zustandsloser-programmierbarer-schalter]: docs/types/zustandsloser-programmierbarer-schalter.md

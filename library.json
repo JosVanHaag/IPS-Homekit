@@ -1,13 +1,13 @@
 {
     "id": "{BAB8F225-DD66-42A0-AABB-46CCB99C893B}",
-    "author": "Michael Maroszek",
+    "author": "Michael Maroszek, Thomas Stein",
     "name": "HomeKit",
-    "url": "https://github.com/paresy/HomeKit/",
+    "url": "https://github.com/JosVanHaag/IPS-Homekit/",
     "compatibility": {
         "version": "9.0",
         "date": 1735689600
     },
-    "version": "1.6.1",
+    "version": "1.7.0",
     "build": 0,
     "date": 0
 }
