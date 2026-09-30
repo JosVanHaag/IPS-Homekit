@@ -35,6 +35,7 @@ Eine vollständige Anleitung zur Installation und Einrichtung sowie eine Übersi
 * [Thermostat (Nur Heizen)][thermostat-nur-heizen]
 * [Thermostat (Nur Heizen + Batterie)][thermostat-nur-heizen-+-batterie]
 * [Schalter][schalter]
+* [Schalter (Wert)][schalter-wert]
 * [Expertenoptionen][expertenoptionen]
 * [Sicherheitssystem][sicherheitssystem]
 * [Zustandsloser programmierbarer Schalter][zustandsloser-programmierbarer-schalter]
@@ -68,6 +69,7 @@ Eine vollständige Anleitung zur Installation und Einrichtung sowie eine Übersi
 [thermostat-nur-heizen]: types/thermostat-nur-heizen.md
 [thermostat-nur-heizen-+-batterie]: types/thermostat-nur-heizen-+-batterie.md
 [schalter]: types/schalter.md
+[schalter-wert]: types/schalter-wert.md
 [expertenoptionen]: types/expertenoptionen.md
 [sicherheitssystem]: types/sicherheitssystem.md
 [zustandsloser-programmierbarer-schalter]: types/zustandsloser-programmierbarer-schalter.md
